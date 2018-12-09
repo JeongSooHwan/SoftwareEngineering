@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="kr.co.company.se05_termproject_15">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".student"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".professor"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".student_imformation"
+            android:label="학생정보" />
+        <activity
+            android:name=".admin"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".admin_member"
+            android:label="회원관리" />
+        <activity
+            android:name=".student_apply"
+            android:label="수강신청" />
+        <activity
+            android:name=".student_timetable"
+            android:label="강의시간표" />
+        <activity
+            android:name=".professor_register_lecture"
+            android:label="강의등록" />
+        <activity
+            android:name=".admin_scholar"
+            android:label="장학관리" />
+        <activity
+            android:name=".student_scholar"
+            android:label="장학/등록" />
+        <activity
+            android:name=".student_evaluation"
+            android:label="강의평가" />
+        <activity
+            android:name=".professor_evaluation"
+            android:label="강의평가" />
+        <activity android:name=".professor_check"
+            android:label="출석부"/>
+        <activity android:name=".professor_grade"
+            android:label="성적부여"/>
+        <activity android:name=".student_grade"
+            android:label="성적조회"/>
+        <activity android:name=".professor_plan"
+            android:label="강의계획서등록"/>
+    </application>
+
+</manifest>
