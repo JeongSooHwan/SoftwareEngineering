@@ -50,6 +50,8 @@ public class admin_scholar extends AppCompatActivity {
         //input array data
         final ArrayList<String> list2 = new ArrayList<>();
 
+        registertxt.setText("0");
+        
         String id = null;
         Cursor cursor = db.rawQuery("SELECT * FROM member", null);
         while (cursor.moveToNext()) {
@@ -92,6 +94,13 @@ public class admin_scholar extends AppCompatActivity {
                     AlertDialog dialog;
                     AlertDialog.Builder builder = new AlertDialog.Builder(admin_scholar.this);
                     dialog = builder.setMessage("등록금을 다시 확인해주세요.\n (1,000,000 ~ 3,000,000)")
+                            .setPositiveButton("확인", null)
+                            .create();
+                    dialog.show();
+                } else if (registertxt.getText().toString() == null) {
+                    AlertDialog dialog;
+                    AlertDialog.Builder builder = new AlertDialog.Builder(admin_scholar.this);
+                    dialog = builder.setMessage("등록금을 입력 해주세요.\n (1,000,000 ~ 3,000,000)")
                             .setPositiveButton("확인", null)
                             .create();
                     dialog.show();
