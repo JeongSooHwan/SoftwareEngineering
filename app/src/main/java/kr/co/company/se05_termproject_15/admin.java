@@ -47,13 +47,13 @@ public class admin extends AppCompatActivity {
             case R.id.memberbtn:
                 Intent intent = new Intent(getApplicationContext(), admin_member.class);
                 intent.putExtra("name", txt.getText().toString());
-                Toast.makeText(getApplicationContext(), "회원관리", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "회원관리", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             case R.id.scholarbtn:
                 intent = new Intent(getApplicationContext(), admin_scholar.class);
                 intent.putExtra("name", txt.getText().toString());
-                Toast.makeText(getApplicationContext(), "장학관리", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "장학관리", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
         }

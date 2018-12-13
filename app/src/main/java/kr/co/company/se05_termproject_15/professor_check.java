@@ -1,10 +1,12 @@
 package kr.co.company.se05_termproject_15;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -90,6 +92,13 @@ public class professor_check extends AppCompatActivity {
                         s_id = cursor.getInt(cursor.getColumnIndex("s_id")); // 학수번호 저장
                     }
                 }
+
+                AlertDialog dialog;
+                AlertDialog.Builder builder = new AlertDialog.Builder(professor_check.this);
+                dialog = builder.setMessage("조회하였습니다.")
+                        .setPositiveButton("확인", null)
+                        .create();
+                dialog.show();
 
                 cursor = db.rawQuery("SELECT * FROM course", null);
                 while (cursor.moveToNext()) {

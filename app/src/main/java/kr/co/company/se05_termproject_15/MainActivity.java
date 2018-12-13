@@ -2,6 +2,7 @@ package kr.co.company.se05_termproject_15;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.database.Cursor;
@@ -9,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -63,43 +65,88 @@ public class MainActivity extends AppCompatActivity {
                     //그다음 조건문을 걸어줘서 조건에 부합하다면 성공 메세지와 함께 다음 화면으로 이동
                     if (id.equals(db_id) && pwd.equals(db_pwd) && db_id.charAt(0) == '2') { // Student
                         String db_name = cursor.getString(cursor.getColumnIndex("name"));
-                        Intent intent = new Intent(getApplicationContext(), student.class);
+                        final Intent intent = new Intent(getApplicationContext(), student.class);
                         intent.putExtra("number", etid.getText().toString());
                         intent.putExtra("name",db_name);
-                        Toast.makeText(getApplicationContext(), "로그인되었습니다.", Toast.LENGTH_SHORT).show();
-                        startActivity(intent);
+//                        Toast.makeText(getApplicationContext(), "로그인되었습니다.", Toast.LENGTH_SHORT).show();
+                        AlertDialog dialog;
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        dialog = builder.setMessage("로그인 성공.")
+                                .setPositiveButton("확인",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                startActivity(intent);
+                                            }
+                                        })
+                                .create();
+                        dialog.show();
                         flag = true;
                         break;
                     }
                     else if (id.equals(db_id) && pwd.equals(db_pwd) && db_id.charAt(0) == '1') { // Professor
                         String db_name = cursor.getString(cursor.getColumnIndex("name"));
-                        Intent intent = new Intent(getApplicationContext(), professor.class);
+                        final Intent intent = new Intent(getApplicationContext(), professor.class);
                         intent.putExtra("number", etid.getText().toString());
                         intent.putExtra("name",db_name);
-                        Toast.makeText(getApplicationContext(), "로그인되었습니다.", Toast.LENGTH_SHORT).show();
-                        startActivity(intent);
+//                        Toast.makeText(getApplicationContext(), "로그인되었습니다.", Toast.LENGTH_SHORT).show();
+                        AlertDialog dialog;
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        dialog = builder.setMessage("로그인 성공.")
+                                .setPositiveButton("확인",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                startActivity(intent);
+                                            }
+                                        })
+                                .create();
+                        dialog.show();
                         flag = true;
                         break;
                     }
                     else if (id.equals(db_id) && pwd.equals(db_pwd) && db_id.charAt(0) == 'A') { // Admin
                         String db_name = cursor.getString(cursor.getColumnIndex("name"));
-                        Intent intent = new Intent(getApplicationContext(), admin.class);
+                        final Intent intent = new Intent(getApplicationContext(), admin.class);
                         intent.putExtra("number", etid.getText().toString());
                         intent.putExtra("name",db_name);
-                        Toast.makeText(getApplicationContext(), "로그인되었습니다.", Toast.LENGTH_SHORT).show();
-                        startActivity(intent);
+//                        Toast.makeText(getApplicationContext(), "로그인되었습니다.", Toast.LENGTH_SHORT).show();
+                        AlertDialog dialog;
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        dialog = builder.setMessage("로그인 성공.")
+                                .setPositiveButton("확인",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                startActivity(intent);
+                                            }
+                                        })
+                                .create();
+                        dialog.show();
+
                         flag = true;
                         break;
                     }
                     else if (TextUtils.isEmpty(id) || TextUtils.isEmpty(pwd)) {//유효성검사 해당 변수에 안에 값의 null이거나 비어 있는지를 체크
-                        Toast.makeText(MainActivity.this, "ID와 PW를 입력하세요.", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(MainActivity.this, "ID와 PW를 입력하세요.", Toast.LENGTH_LONG).show();
+                        AlertDialog dialog;
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        dialog = builder.setMessage("ID와 PW를 확인하세요.")
+                                .setPositiveButton("확인", null)
+                                .create();
+                        dialog.show();
+                        flag = true;
                         break;
 
                     }
                 }
                 if(flag == false){
                     //아니라면 실패라는 메세지와 함께 화면 이동은 발생하지 않음
-                    Toast.makeText(getApplicationContext(), "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show();
+                    AlertDialog dialog;
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    dialog = builder.setMessage("로그인 실패")
+                            .setPositiveButton("확인", null)
+                            .create();
+                    dialog.show();
+//                    Toast.makeText(getApplicationContext(), "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });

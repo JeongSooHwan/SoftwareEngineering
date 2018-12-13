@@ -18,16 +18,16 @@
         </activity>
         <activity
             android:name=".student"
-            android:label="@string/app_name" />
+            android:label="학생 페이지" />
         <activity
             android:name=".professor"
-            android:label="@string/app_name" />
+            android:label="교수 페이지" />
         <activity
             android:name=".student_imformation"
             android:label="학생정보" />
         <activity
             android:name=".admin"
-            android:label="@string/app_name" />
+            android:label="관리자 페이지" />
         <activity
             android:name=".admin_member"
             android:label="회원관리" />

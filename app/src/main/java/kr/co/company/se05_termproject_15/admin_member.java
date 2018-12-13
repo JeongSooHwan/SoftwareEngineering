@@ -168,17 +168,35 @@ public class admin_member extends AppCompatActivity {
                         if (user_id.getText().toString().getBytes().length <= 0 || user_name.getText().toString().getBytes().length <= 0 ||
                                 user_pwd.getText().toString().getBytes().length <= 0 || user_pwd2.getText().toString().getBytes().length <= 0 ||
                                 user_tel.getText().toString().getBytes().length <= 0 || spinner.getSelectedItem().toString() == "") { //빈값이 넘어올때의 처리
-                            Toast.makeText(getApplicationContext(), "빈 칸을 입력해주세요", Toast.LENGTH_SHORT).show();
+                            AlertDialog dialog;
+                            AlertDialog.Builder builder = new AlertDialog.Builder(admin_member.this);
+                            dialog = builder.setMessage("빈 칸을 입력해주세요")
+                                    .setPositiveButton("확인", null)
+                                    .create();
+                            dialog.show();
+//                            Toast.makeText(getApplicationContext(), "빈 칸을 입력해주세요", Toast.LENGTH_SHORT).show();
                         } else if (!user_pwd.getText().toString().equals(user_pwd2.getText().toString())) {
                             user_pwd.setText("");
                             user_pwd2.setText("");
-                            Toast.makeText(getApplicationContext(), "비밀번호를 다시 확인해주세요", Toast.LENGTH_SHORT).show();
+                            AlertDialog dialog;
+                            AlertDialog.Builder builder = new AlertDialog.Builder(admin_member.this);
+                            dialog = builder.setMessage("비밀번호를 다시 확인해주세요")
+                                    .setPositiveButton("확인", null)
+                                    .create();
+                            dialog.show();
+//                            Toast.makeText(getApplicationContext(), "비밀번호를 다시 확인해주세요", Toast.LENGTH_SHORT).show();
                         } else {
                             flag = true;
                             Cursor cursor = db.rawQuery("SELECT * FROM member", null);
                             while (cursor.moveToNext()) {
                                 if (user_id.getText().toString().equals(cursor.getString(cursor.getColumnIndex("id")))) {
-                                    Toast.makeText(getApplicationContext(), "이미 존재하는 ID 입니다", Toast.LENGTH_SHORT).show();
+                                    AlertDialog dialog;
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(admin_member.this);
+                                    dialog = builder.setMessage("이미 존재하는 ID 입니다")
+                                            .setPositiveButton("확인", null)
+                                            .create();
+                                    dialog.show();
+//                                    Toast.makeText(getApplicationContext(), "이미 존재하는 ID 입니다", Toast.LENGTH_SHORT).show();
                                     user_id.setText("");
                                     suc = true;
                                 }
@@ -186,21 +204,39 @@ public class admin_member extends AppCompatActivity {
                         }
 
 
-                        if (!stuBtn.isChecked() && !proBtn.isChecked()) {
-                            Toast.makeText(getApplicationContext(), "학생 또는 교수를 체크해주세요.", Toast.LENGTH_SHORT).show();
+                        if (suc == false && !stuBtn.isChecked() && !proBtn.isChecked()) {
+                            AlertDialog dialog;
+                            AlertDialog.Builder builder = new AlertDialog.Builder(admin_member.this);
+                            dialog = builder.setMessage("학생 또는 교수를 체크해주세요.")
+                                    .setPositiveButton("확인", null)
+                                    .create();
+                            dialog.show();
+//                            Toast.makeText(getApplicationContext(), "학생 또는 교수를 체크해주세요.", Toast.LENGTH_SHORT).show();
                         }
 
                         if (stuBtn.isChecked() && !levelSpinner.getSelectedItem().toString().contains("-")) {
                             levelflag = true;
                         } else if (stuBtn.isChecked() && levelSpinner.getSelectedItem().toString().contains("-")) {
-                            Toast.makeText(getApplicationContext(), "학년을 다시 확인해주세요", Toast.LENGTH_SHORT).show();
+                            AlertDialog dialog;
+                            AlertDialog.Builder builder = new AlertDialog.Builder(admin_member.this);
+                            dialog = builder.setMessage("학년을 다시 확인해주세요")
+                                    .setPositiveButton("확인", null)
+                                    .create();
+                            dialog.show();
+//                            Toast.makeText(getApplicationContext(), "학년을 다시 확인해주세요", Toast.LENGTH_SHORT).show();
                             levelSpinner.setSelection(0);
                         }
 
                         if (proBtn.isChecked() && !posSpinner.getSelectedItem().toString().contains("-")) {
                             posflag = true;
                         } else if (proBtn.isChecked() && posSpinner.getSelectedItem().toString().contains("-")) {
-                            Toast.makeText(getApplicationContext(), "직급을 다시 확인해주세요", Toast.LENGTH_SHORT).show();
+                            AlertDialog dialog;
+                            AlertDialog.Builder builder = new AlertDialog.Builder(admin_member.this);
+                            dialog = builder.setMessage("직급을 다시 확인해주세요")
+                                    .setPositiveButton("확인", null)
+                                    .create();
+                            dialog.show();
+//                            Toast.makeText(getApplicationContext(), "직급을 다시 확인해주세요", Toast.LENGTH_SHORT).show();
                             posSpinner.setSelection(0);
                         }
 
@@ -278,7 +314,13 @@ public class admin_member extends AppCompatActivity {
                             }
                         }
                         if (delF == false) {
-                            Toast.makeText(getApplicationContext(), "ID 또는 패스워드를 다시 확인해주세요", Toast.LENGTH_SHORT).show();
+                            AlertDialog dialog;
+                            AlertDialog.Builder builder = new AlertDialog.Builder(admin_member.this);
+                            dialog = builder.setMessage("ID 또는 패스워드를 다시 확인해주세요")
+                                    .setPositiveButton("확인", null)
+                                    .create();
+                            dialog.show();
+//                            Toast.makeText(getApplicationContext(), "ID 또는 패스워드를 다시 확인해주세요", Toast.LENGTH_SHORT).show();
                             del_id.setText("");
                             del_pwd.setText("");
                         }

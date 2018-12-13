@@ -145,7 +145,17 @@ public class professor_register_lecture extends AppCompatActivity {
                 String yoil = spinYoil.getSelectedItem().toString().substring(0, 1);
                 String start = spinStartTime.getSelectedItem().toString().substring(0, 2);
                 String end = spinEndTime.getSelectedItem().toString().substring(0, 2);
-                if (Integer.parseInt(start) >= Integer.parseInt(end)) {
+                if (spinStartTime.getSelectedItem().toString().equals("시작") || spinEndTime.getSelectedItem().toString().equals("종료")) {
+                    dialog = builder.setMessage("수업 시작시간과 종료시간을 입력해주세요.")
+                            .setPositiveButton("확인", null)
+                            .create();
+                    dialog.show();
+                } else if(spinYoil.getSelectedItem().toString().equals("요일")){
+                    dialog = builder.setMessage("요일을 입력해주세요.")
+                            .setPositiveButton("확인", null)
+                            .create();
+                    dialog.show();
+                }else if (Integer.parseInt(start) >= Integer.parseInt(end)) {
                     dialog = builder.setMessage("수업 시작시간과 종료시간을 다시 확인해주세요.")
                             .setPositiveButton("확인", null)
                             .create();
@@ -179,7 +189,18 @@ public class professor_register_lecture extends AppCompatActivity {
                 String start2 = spinStartTime2.getSelectedItem().toString().substring(0, 2);
                 String end2 = spinEndTime2.getSelectedItem().toString().substring(0, 2);
 
-                if ((Integer.parseInt(start1) >= Integer.parseInt(end1)) || (Integer.parseInt(start2) >= Integer.parseInt(end2))) {
+                if (spinStartTime1.getSelectedItem().toString().equals("시작") || spinEndTime1.getSelectedItem().toString().equals("종료") ||
+                        spinStartTime2.getSelectedItem().toString().equals("시작") || spinEndTime2.getSelectedItem().toString().equals("종료")) {
+                    dialog = builder.setMessage("수업 시작시간과 종료시간을 입력해주세요.")
+                            .setPositiveButton("확인", null)
+                            .create();
+                    dialog.show();
+                } else if(spinYoil1.getSelectedItem().toString().equals("요일") ||spinYoil2.getSelectedItem().toString().equals("요일") ){
+                    dialog = builder.setMessage("요일을 입력해주세요.")
+                            .setPositiveButton("확인", null)
+                            .create();
+                    dialog.show();
+                }else if ((Integer.parseInt(start1) >= Integer.parseInt(end1)) || (Integer.parseInt(start2) >= Integer.parseInt(end2))) {
 
                     dialog = builder.setMessage("수업 시작시간과 종료시간을 다시 확인해주세요.")
                             .setPositiveButton("확인", null)

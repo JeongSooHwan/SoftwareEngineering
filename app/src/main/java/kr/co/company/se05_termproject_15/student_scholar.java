@@ -1,10 +1,12 @@
 package kr.co.company.se05_termproject_15;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -88,6 +90,12 @@ public class student_scholar extends AppCompatActivity {
                 while (cursor.moveToNext()) {
                     if (Integer.parseInt(id) == cursor.getInt(cursor.getColumnIndex("id")) &&
                             Rspinner.getSelectedItem().toString().equals(cursor.getString(cursor.getColumnIndex("semester")))) {
+                        AlertDialog dialog;
+                        AlertDialog.Builder builder = new AlertDialog.Builder(student_scholar.this);
+                        dialog = builder.setMessage("조회하였습니다.")
+                                .setPositiveButton("확인", null)
+                                .create();
+                        dialog.show();
                         registertxt.setText(""+cursor.getInt(cursor.getColumnIndex("register")));
                         scholartxt.setText(""+cursor.getInt(cursor.getColumnIndex("scholarship")));
                     }

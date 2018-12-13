@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -89,7 +90,12 @@ public class professor_evaluation extends AppCompatActivity {
                     }
                 }
 
-
+                AlertDialog dialog;
+                AlertDialog.Builder builder = new AlertDialog.Builder(professor_evaluation.this);
+                dialog = builder.setMessage("조회하였습니다.")
+                        .setPositiveButton("확인", null)
+                        .create();
+                dialog.show();
                 cursor = db.rawQuery("SELECT * FROM course", null);
                 while (cursor.moveToNext()) {
                     if (s_id == cursor.getInt(cursor.getColumnIndex("subjectID"))) {
@@ -98,8 +104,12 @@ public class professor_evaluation extends AppCompatActivity {
                     }
                 }
 
-                prob1txt.setText(""+count);
-                prob2txt.setText("" + (sum / count));
+                prob1txt.setText("" + count);
+                if (count == 0) {
+                    prob2txt.setText("0");
+                } else {
+                    prob2txt.setText("" + (sum / count));
+                }
 
 
             }

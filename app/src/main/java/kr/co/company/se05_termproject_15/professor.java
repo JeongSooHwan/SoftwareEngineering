@@ -32,31 +32,31 @@ public class professor extends AppCompatActivity {
             case R.id.gradebtn:
                 Intent intent = new Intent(getApplicationContext(), professor_grade.class);
                 intent.putExtra("name", txt.getText().toString());
-                Toast.makeText(getApplicationContext(), "성적부여", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "성적부여", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             case R.id.profilebtn:
                 intent = new Intent(getApplicationContext(), professor_check.class);
                 intent.putExtra("name", txt.getText().toString());
-                Toast.makeText(getApplicationContext(), "출석부", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "출석부", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             case R.id.applybtn:
                 intent = new Intent(getApplicationContext(), professor_register_lecture.class);
                 intent.putExtra("name", txt.getText().toString());
-                Toast.makeText(getApplicationContext(), "강의등록", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "강의등록", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             case R.id.planbtn:
                 intent = new Intent(getApplicationContext(), professor_plan.class);
                 intent.putExtra("name", txt.getText().toString());
-                Toast.makeText(getApplicationContext(), "강의계획서등록", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "강의계획서등록", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             case R.id.evaluationbtn:
                 intent = new Intent(getApplicationContext(), professor_evaluation.class);
                 intent.putExtra("name", txt.getText().toString());
-                Toast.makeText(getApplicationContext(), "강의평가", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "강의평가", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
         }

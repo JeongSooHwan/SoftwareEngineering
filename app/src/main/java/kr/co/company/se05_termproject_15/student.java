@@ -57,12 +57,12 @@ public class student extends AppCompatActivity {
 //                    intent.putExtra("room", cursor.getString(cursor.getColumnIndex("s_room")));
                     startActivity(intent);
 //                }
-                Toast.makeText(getApplicationContext(), "강의 시간표", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "강의 시간표", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.gradebtn:
                 intent = new Intent(getApplicationContext(), student_grade.class);
                 intent.putExtra("name", txt.getText().toString());
-                Toast.makeText(getApplicationContext(), "성적조회", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "성적조회", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             case R.id.profilebtn:
@@ -76,7 +76,7 @@ public class student extends AppCompatActivity {
                         intent.putExtra("name", cursor.getString(cursor.getColumnIndex("name")));
                         intent.putExtra("department", cursor.getString(cursor.getColumnIndex("department")));
                         intent.putExtra("tel", cursor.getString(cursor.getColumnIndex("tel")));
-                        Toast.makeText(getApplicationContext(), "학생정보", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(), "학생정보", Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                     }
                 }
@@ -85,19 +85,19 @@ public class student extends AppCompatActivity {
                 intent = new Intent(getApplicationContext(), student_apply.class);
                 intent.putExtra("name", txt.getText().toString());
                 intent.putExtra("studentID",studentID);
-                Toast.makeText(getApplicationContext(), "수강신청", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "수강신청", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             case R.id.scholarbtn:
                 intent = new Intent(getApplicationContext(), student_scholar.class);
                 intent.putExtra("name", txt.getText().toString());
-                Toast.makeText(getApplicationContext(), "장학조회", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "장학조회", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             case R.id.evaluationbtn:
                 intent = new Intent(getApplicationContext(), student_evaluation.class);
                 intent.putExtra("name", txt.getText().toString());
-                Toast.makeText(getApplicationContext(), "강의평가", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "강의평가", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
         }
