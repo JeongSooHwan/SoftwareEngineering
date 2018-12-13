@@ -51,7 +51,7 @@ public class admin_scholar extends AppCompatActivity {
         final ArrayList<String> list2 = new ArrayList<>();
 
         registertxt.setText("0");
-        
+
         String id = null;
         Cursor cursor = db.rawQuery("SELECT * FROM member", null);
         while (cursor.moveToNext()) {
